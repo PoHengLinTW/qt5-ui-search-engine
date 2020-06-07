@@ -14,10 +14,20 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    QString getTime();
 public slots:
-    void setTime();
+    void update();
 
 private:
     Ui::MainWindow *ui;
+    bool flag; // first set
+    void setTime(std::tm*);
+    void setProgress();
+    void setServerInfo(std::tm*);
+    void setWorkload();
+    void setWebsite(std::tm*);
+    void setClientInfo(std::tm*);
+    QString date2qstring(std::tm*);
+    QString time2qstring(std::tm*);
 };
 #endif // MAINWINDOW_H
